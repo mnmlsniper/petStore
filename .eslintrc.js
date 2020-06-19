@@ -1,20 +1,31 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
     node: true,
     jest: true,
     es6: true,
   },
   extends: [
-    'airbnb',
+    'airbnb-base',
   ],
+  parserOptions: {
+    parser: 'babel-eslint',
+    ecmaVersion: 2018,
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true,
+    },
+  },
+  globals: {
+    url: 'readonly',
+  },
   rules: {
+    'import/no-cycle': ['error', { maxDepth: Infinity }],
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'max-len': ['error', { code: 230 }],
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
-    'import/no-cycle': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
     'class-methods-use-this': 'off',
@@ -31,12 +42,5 @@ module.exports = {
     'no-unused-expressions': 'off',
     'operator-assignment': 'off',
     'brace-style': ['error', '1tbs', { allowSingleLine: false }],
-  },
-  parserOptions: {
-    parser: 'babel-eslint',
-    ecmaVersion: 2018,
-    ecmaFeatures: {
-      experimentalObjectRestSpread: true,
-    },
   },
 };

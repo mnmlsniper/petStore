@@ -11,10 +11,10 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest',
   },
   testMatch: [
-    '**/tests/specs/*.js',
+    '**/tests/specs/**/*.js',
   ],
   globals: {
-    dashApi: 'https://petstore.swagger.io/v2/',
+    url: 'https://petstore.swagger.io/v2',
     testTimeout: 50000,
   },
   verbose: true,
