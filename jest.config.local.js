@@ -2,6 +2,7 @@ module.exports = {
   testEnvironment: 'node',
   reporters: [
     'default',
+    ['./node_modules/@testomatio/reporter/lib/adapter/jest.js', { apiKey: 'ctk23acfekwx' }],
   ],
   moduleFileExtensions: [
     'js',

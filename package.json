@@ -26,5 +26,8 @@
     "jest-cli": "^26.0.1",
     "lodash": "^4.17.15",
     "qs": "^6.9.4"
+  },
+  "dependencies": {
+    "@testomatio/reporter": "^0.1.12"
   }
 }
