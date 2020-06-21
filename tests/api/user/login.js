@@ -1,22 +1,10 @@
-import axios from 'axios';
+import { apiService } from '../../lib/apiInstanse';
 
 const Login = function Login() {
-  this.get = async function AuthLogin(credential) {
-    try {
-      const response = await axios.get(
-        `${url}/user/login`,
-        {
-          params: credential,
-          validateStatus(status) {
-            return status < 500;
-          },
-        },
-      );
-      return response;
-    } catch (err) {
-      console.log(err);
-      throw new Error(`URL - ${err}`);
-    }
+  this.p = async function pLogin(data) {
+    const url = '/user/login';
+    const r = await apiService.get(url, data);
+    return r;
   };
 };
 export default new Login();
