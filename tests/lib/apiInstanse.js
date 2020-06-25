@@ -2,7 +2,7 @@ import axios from 'axios';
 import qs from 'qs';
 
 class ApiService {
-  getInstance(token) {
+  static getInstance(token) {
     const axiosInstance = axios.create({
       baseURL: 'https://petstore.swagger.io/v2',
       headers: {
@@ -22,12 +22,12 @@ class ApiService {
   }
 
   async get(url, data) {
-    const r = this.getInstance().get(url, data);
+    const r = this.constructor.getInstance().get(url, data);
     return r;
   }
 
   async post(url, data, token) {
-    const r = this.getInstance(token).post(url, data);
+    const r = this.constructor.getInstance(token).post(url, data);
     return r;
   }
 }
